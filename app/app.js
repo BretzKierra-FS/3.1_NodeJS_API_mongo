@@ -1,8 +1,9 @@
 const express = require('express');
 const app = express();
 const morgan = require('morgan');
-const authorRoutes = require('../api/routes/authors');
-const bookRoutes = require('../api/routes/books');
+
+
+const routeHandler = require('../api/routes')
 
 //middleware for logging
 app.use(morgan('dev'));
@@ -33,8 +34,11 @@ app.get('/', (req, res, next) => {
   res.status(200).json({ message: 'Server is running', method: req.method });
 });
 
-app.use('/authors', authorRoutes);
-app.use('/books', bookRoutes);
+
+
+app.use('/', routeHandler)
+// app.use('/authors', authorRoutes);
+// app.use('/books', bookRoutes);
 
 app.use((req, res, next) => {
   const error = new Error('Not Found');
