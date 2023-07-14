@@ -2,8 +2,7 @@ const express = require('express');
 const app = express();
 const morgan = require('morgan');
 
-
-const routeHandler = require('../api/routes')
+const routeHandler = require('../api/routes');
 
 //middleware for logging
 app.use(morgan('dev'));
@@ -34,9 +33,7 @@ app.get('/', (req, res, next) => {
   res.status(200).json({ message: 'Server is running', method: req.method });
 });
 
-
-
-app.use('/', routeHandler)
+app.use('/', routeHandler);
 // app.use('/authors', authorRoutes);
 // app.use('/books', bookRoutes);
 

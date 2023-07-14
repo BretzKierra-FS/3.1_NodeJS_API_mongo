@@ -1,30 +1,21 @@
 const express = require('express');
 const router = express.Router();
+const {
+  deleteAuthor,
+  updateAuthor,
+  createAuthor,
+  getAuthorById,
+  getAuthor,
+} = require('./controllers/authorController');
 
-router.get('/', (req, res, next) => {
-  res.json({ message: 'Authors - GET' });
-});
+router.get('/', getAuthor);
 
-router.post('/', (req, res, next) => {
-  res.json({ message: 'Authors - Post' });
-});
+router.post('/', createAuthor)
 
-router.get('/:authorId', (req, res, next) => {
-  const authorId = req.params.authorId;
-  res.json({ message: 'Authors - GET by ID', id: authorId });
-});
+router.get('/:authorId', getAuthorById);
 
-router.patch('/:authorId', (req, res, next) => {
-    const authorId = req.params.authorId;
-    res.json({ message: 'Authors - PATCH by ID', id: authorId });
-  });
+router.patch('/:authorId', updateAuthor)
 
-  router.delete('/:authorId', (req, res, next) => {
-    const authorId = req.params.authorId;
-    res.json({ message: 'Authors - Delete by ID', id: authorId });
-  });
-
-
-
+router.delete('/:authorId', deleteAuthor);
 
 module.exports = router;

@@ -1,8 +1,12 @@
 const http = require('http');
 require('dotenv').config();
+const connectDb = require('./api/routes/db/config');
 const app = require('./app/app');
+
+connectDb();
+
 http
   .createServer(app)
   .listen(process.env.port || 3000, () =>
-    console.log(`Sever is running on port:${process.env.port}`)
+    console.log(`Server is running on port:${process.env.port}`)
   );
