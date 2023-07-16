@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const morgan = require('morgan');
 
-const routeHandler = require('../api/routes');
+const routeHandler = require('../app/routes');
 
 //middleware for logging
 app.use(morgan('dev'));
