@@ -17,6 +17,9 @@ const petSchema = new mongoose.Schema({
     required: [true, 'Please add a pet type'],
     maxlength: [50, 'Pet types cannot be more than 50 characters'],
   },
+  _id: {
+    type: mongoose.Schema.Types.ObjectId,
+  },
 });
 
 module.exports = mongoose.model('Pet', petSchema);
