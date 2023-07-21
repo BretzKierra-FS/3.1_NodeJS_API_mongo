@@ -17,6 +17,9 @@ const petSchema = new mongoose.Schema({
     required: [true, 'Please add a description'],
     maxlength: [500, 'Descriptions cannot be more than 500 characters'],
   },
+  _id: {
+    type: mongoose.Schema.Types.ObjectId,
+  },
   owner: [
     {
       type: mongoose.Schema.Types.ObjectId,

@@ -19,6 +19,9 @@ const OwnerSchema = new mongoose.Schema({
       'Please enter a valid email addresss',
     ],
   },
+  _id: {
+    type: mongoose.Schema.Types.ObjectId,
+  },
   pets: [
     {
       type: mongoose.Schema.Types.ObjectId,
