@@ -6,7 +6,11 @@ exports.getPet = async (req, res, next) => {
 
 exports.getPetById = async (req, res, next) => {
   const petId = req.params.petId;
-  const pet = await Pet.findById(petId);
+  const pet = await Pet.findById(petId)
+    .select('name _id')
+    .catch((err) => {
+      Message.not_found_error(res, err);
+    });
   res.json({
     message: `Pets - ${req.method}`,
     id: petId,

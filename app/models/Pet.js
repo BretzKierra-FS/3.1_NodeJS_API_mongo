@@ -17,6 +17,12 @@ const petSchema = new mongoose.Schema({
     required: [true, 'Please add a description'],
     maxlength: [500, 'Descriptions cannot be more than 500 characters'],
   },
+  owner: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Owner',
+    },
+  ],
 });
 
 module.exports = mongoose.model('Pet', petSchema);
