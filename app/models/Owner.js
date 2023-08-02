@@ -10,7 +10,7 @@ const OwnerSchema = new mongoose.Schema({
   },
   age: {
     type: Number,
-    required: true,
+    required: [true, 'Please add age'],
   },
   email: {
     type: String,
@@ -18,6 +18,10 @@ const OwnerSchema = new mongoose.Schema({
       /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/,
       'Please enter a valid email addresss',
     ],
+    address: {
+      type: String,
+      required: [true, 'please add address'],
+    },
   },
   _id: {
     type: mongoose.Schema.Types.ObjectId,
